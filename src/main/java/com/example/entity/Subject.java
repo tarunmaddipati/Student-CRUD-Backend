@@ -37,6 +37,10 @@ public class Subject {
         this.id = id;
     }
 
+    public Subject(){
+
+    }
+
     public String getName() {
         return name;
     }

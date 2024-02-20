@@ -1,6 +1,5 @@
 package com.example.entity;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,6 +17,8 @@ public class Student {
     private float percentage;
     @Column(name = "student_branch")
     private String branch;
+    @Column(name = "password")
+    private String password;
 
     @ManyToMany
     @JoinTable(
@@ -25,7 +26,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
-    private Set<Subject> subjects = new HashSet<>();
+    Set<Subject> subjects = new HashSet<>();
 
 
 
@@ -70,6 +71,12 @@ public class Student {
     public void setBranch(String branch) {
         this.branch = branch;
     }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
@@ -78,6 +85,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", percentage=" + percentage +
                 ", branch='" + branch + '\'' +
+                ",password='"+ password + '\''+
                 '}';
     }
 
